@@ -11,13 +11,13 @@
 	let click = '';
 
 	let priorities = [
-		{id:"Minimum priority", value:1},
-		{id:"Low priority", value:2},
-		{id:"Medium priority", value:3},
-		{id:"High priority", value:4},
-		{id:"Maximum priority", value:5}
-	]
-	
+		{ id: 'Minimum priority', value: 1 },
+		{ id: 'Low priority', value: 2 },
+		{ id: 'Medium priority', value: 3 },
+		{ id: 'High priority', value: 4 },
+		{ id: 'Maximum priority', value: 5 }
+	];
+
 	let priority = priorities[2];
 
 	class Result {
@@ -40,7 +40,7 @@
 
 		const res = await fetch(webhook, { method: 'GET' });
 		const json = await res.json();
-		result = Object.assign(new Result(), json);;
+		result = Object.assign(new Result(), json);
 	}
 </script>
 
@@ -56,39 +56,43 @@
 	<input placeholder="Title" class="input input-bordered my-5 w-full" bind:value={title} />
 
 	<div class="dropdown dropdown-hover my-5 w-full">
-		<div tabindex="0" class="btn w-full">{priority.id}</div> 
-		<ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-full">	
+		<div tabindex="0" class="btn w-full">{priority.id}</div>
+		<ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-full">
 			{#each priorities as item}
-			<li>
-				<button on:click={() => priority = item}>
-					{item.id || item.value}
-				</button>
-			</li> 
+				<li>
+					<button on:click={() => (priority = item)}>
+						{item.id || item.value}
+					</button>
+				</li>
 			{/each}
 		</ul>
-	  </div>
+	</div>
 
-	<input placeholder="Tags (tada,warning,+1)" class="input input-bordered my-5 w-full" bind:value={tags} />
+	<input
+		placeholder="Tags (tada,warning,+1)"
+		class="input input-bordered my-5 w-full"
+		bind:value={tags}
+	/>
 
 	<input placeholder="Click URL" class="input input-bordered my-5 w-full" bind:value={click} />
-	
+
 	<button class="btn btn-primary my-5 w-full" on:click={ntfy}>Notify</button>
 
 	{#if result.id != null}
-	<div class="w-full shadow stats">
-		<div class="stat place-items-center place-content-center">
-		  <div class="stat-title">ID</div> 
-		  <div class="stat-value">{result.id}</div> 
-		</div> 
-		<div class="stat place-items-center place-content-center">
-		  <div class="stat-title">Time</div> 
-		  <div class="stat-value text-success">{result.time}</div> 
-		</div> 
-		<div class="stat place-items-center place-content-center">
-		  <div class="stat-title">Event</div> 
-		  <div class="stat-value text-success">{result.event}</div> 
+		<div class="w-full shadow stats">
+			<div class="stat place-items-center place-content-center">
+				<div class="stat-title">ID</div>
+				<div class="stat-value">{result.id}</div>
+			</div>
+			<div class="stat place-items-center place-content-center">
+				<div class="stat-title">Time</div>
+				<div class="stat-value text-success">{result.time}</div>
+			</div>
+			<div class="stat place-items-center place-content-center">
+				<div class="stat-title">Event</div>
+				<div class="stat-value text-success">{result.event}</div>
+			</div>
 		</div>
-	</div>
 	{/if}
 </section>
 

@@ -8,9 +8,14 @@
 
 <footer class="p-4 footer bg-base-300 text-base-content footer-center">
 	<div>
-	  <p>Used in conjuction with <a class="no-underline hover:underline text-sky-400" href="https://ntfy.sh/">Ntfy</a></p>
+		<p>
+			Used in conjuction with <a
+				class="no-underline hover:underline text-sky-400"
+				href="https://ntfy.sh/">Ntfy</a
+			>
+		</p>
 	</div>
-  </footer>
+</footer>
 
 <style>
 	main {
