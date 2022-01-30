@@ -55,6 +55,14 @@
 
 	<input placeholder="Title" class="input input-bordered my-5 w-full" bind:value={title} />
 
+	<input
+		placeholder="Tags (tada,warning,+1)"
+		class="input input-bordered my-5 w-full"
+		bind:value={tags}
+	/>
+
+	<input placeholder="Click URL" class="input input-bordered my-5 w-full" bind:value={click} />
+
 	<div class="dropdown dropdown-hover my-5 w-full">
 		<div tabindex="0" class="btn w-full">{priority.id}</div>
 		<ul tabindex="0" class="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-full">
@@ -67,14 +75,6 @@
 			{/each}
 		</ul>
 	</div>
-
-	<input
-		placeholder="Tags (tada,warning,+1)"
-		class="input input-bordered my-5 w-full"
-		bind:value={tags}
-	/>
-
-	<input placeholder="Click URL" class="input input-bordered my-5 w-full" bind:value={click} />
 
 	<button class="btn btn-primary my-5 w-full" on:click={ntfy}>Notify</button>
 
