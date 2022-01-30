@@ -22,7 +22,7 @@
 
 	class Result {
 		id: string;
-		time: number;
+		time: Date;
 		event: string;
 	}
 	let result = new Result();
@@ -51,17 +51,18 @@
 <section>
 	<input placeholder="Topic*" class="input input-bordered my-5 w-full" bind:value={topic} />
 
-	<input placeholder="Message*" class="input input-bordered my-5 w-full" bind:value={message} />
+	<input placeholder="Message" class="input input-bordered my-5 w-full" bind:value={message} />
 
 	<input placeholder="Title" class="input input-bordered my-5 w-full" bind:value={title} />
 
-	<input
-		placeholder="Tags (tada,warning,+1)"
-		class="input input-bordered my-5 w-full"
-		bind:value={tags}
-	/>
-
 	<input placeholder="Click URL" class="input input-bordered my-5 w-full" bind:value={click} />
+
+	<div class="w-full indicator">
+		<a href="https://ntfy.sh/docs/emojis/" target="_blank">
+			<div class="indicator-item badge indicator-middle">?</div>
+		</a>
+		<input placeholder="Tags" class="input input-bordered my-5 w-full" bind:value={tags} />
+	</div>
 
 	<div class="dropdown dropdown-hover my-5 w-full">
 		<div tabindex="0" class="btn w-full">{priority.id}</div>
@@ -79,14 +80,14 @@
 	<button class="btn btn-primary my-5 w-full" on:click={ntfy}>Notify</button>
 
 	{#if result.id != null}
-		<div class="w-full shadow stats">
+		<div class="w-2/3 shadow stats">
 			<div class="stat place-items-center place-content-center">
 				<div class="stat-title">ID</div>
 				<div class="stat-value">{result.id}</div>
 			</div>
 			<div class="stat place-items-center place-content-center">
 				<div class="stat-title">Time</div>
-				<div class="stat-value text-success">{result.time}</div>
+				<div class="stat-value text-success">{result.time.toString()}</div>
 			</div>
 			<div class="stat place-items-center place-content-center">
 				<div class="stat-title">Event</div>
@@ -103,5 +104,11 @@
 		justify-content: center;
 		align-items: center;
 		flex: 1;
+	}
+
+	.stats {
+		flex-shrink: 0;
+		position: fixed;
+		bottom: 100px;
 	}
 </style>

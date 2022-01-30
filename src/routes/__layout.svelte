@@ -9,9 +9,10 @@
 <footer class="p-4 footer bg-base-300 text-base-content footer-center">
 	<div>
 		<p>
-			Used in conjuction with <a
+			Used in conjunction with <a
 				class="no-underline hover:underline text-sky-400"
-				href="https://ntfy.sh/">Ntfy</a
+				href="https://ntfy.sh/"
+				target="_blank">Ntfy</a
 			>
 		</p>
 	</div>
@@ -28,5 +29,10 @@
 		height: 100%;
 		margin: 0 auto;
 		box-sizing: border-box;
+	}
+	.footer {
+		flex-shrink: 0;
+		position: fixed;
+		bottom: 0;
 	}
 </style>
